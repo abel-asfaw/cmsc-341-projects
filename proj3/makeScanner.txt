@@ -1,0 +1,23 @@
+CXX = g++
+CXXFLAGS = -Wall
+
+scanTest: Scanner.o BST.o scanTest.cpp
+	$(CXX) $(CXXFLAGS) Scanner.o BST.o scanTest.cpp -o scanTest
+
+Scanner.o: Scanner.h Scanner.cpp BST.o
+	$(CXX) $(CXXFLAGS) -c Scanner.cpp
+
+BST.o: BST.h BST.cpp
+	$(CXX) $(CXXFLAGS) -c BST.cpp
+
+run:
+	./scanTest
+
+val:
+	valgrind ./scanTest
+
+gdb:
+	gdb ./scanTest
+ 
+clean:
+	rm *.o

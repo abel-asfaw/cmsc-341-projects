@@ -1,0 +1,23 @@
+CXX = g++
+CXXFLAGS = -Wall
+
+driver: Scanner.o BST.o driver.cpp
+	$(CXX) $(CXXFLAGS) Scanner.o BST.o driver.cpp -o driver
+
+Scanner.o: Scanner.h Scanner.cpp BST.o
+	$(CXX) $(CXXFLAGS) -c Scanner.cpp
+
+BST.o: BST.h BST.cpp
+	$(CXX) $(CXXFLAGS) -c BST.cpp
+
+run:
+	./driver
+
+val:
+	valgrind ./driver
+
+gdb:
+	gdb ./driver
+ 
+clean:
+	rm *~
