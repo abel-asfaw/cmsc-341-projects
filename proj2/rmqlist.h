@@ -151,6 +151,7 @@ RMQList<K,V>::~RMQList(){
     //destruct _nodeArray
     delete [] _nodeArray;
 }
+
 // Copy constructor
 template <class K, class V>
 RMQList<K,V>::RMQList(const RMQList<K,V> &rhs){
@@ -219,8 +220,6 @@ const RMQList<K,V>& RMQList<K,V>::operator<<(const RMQList<K,V> &rhs){
     }
     return *this;
 }
-
-RMQList<K,V> newObject = somethingElse;
 
 // Insert an element into the list; list must be kept in increasing
 // order by key; duplicate keys are not allowed, so return false if
